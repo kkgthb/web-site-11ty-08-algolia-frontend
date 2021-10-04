@@ -30,6 +30,8 @@ This architecture let me embed search into my personal web site using Algolia's 
 
 I actually did simply hand-type the application ID, application key, & index name into `<SCRIPT>` tags the HTML of a web page on my site.  No fancy plugins or anything like that.
 
+![Screenshot of the search page](https://katiekodes.com/images/screenshots/screenshots-algolia/screenshot-algolia-search-simple-frontend.png)
+
 ---
 
 ## Non-JavaScript search
