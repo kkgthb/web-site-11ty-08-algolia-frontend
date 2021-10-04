@@ -1,0 +1,20 @@
+{
+  "name": "web-site-11ty-08-algolia-frontend",
+  "author": "Katie Kodes",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production npx @11ty/eleventy",
+    "dev": "cross-env NODE_ENV=development npx @11ty/eleventy --watch --serve",
+    "develop": "cross-env NODE_ENV=development npx @11ty/eleventy --watch --serve",
+    "now-build": "cross-env NODE_ENV=production npm run build",
+    "debug": "cross-env DEBUG=* npx @11ty/eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "latest",
+    "cross-env": "latest",
+    "dotenv": "latest"
+  }
+}
