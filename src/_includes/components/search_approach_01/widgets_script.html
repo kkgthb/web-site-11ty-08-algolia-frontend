@@ -6,56 +6,10 @@
     "{{ site_env.algolia_api_key }}"
   );
   const indexName = "{{ site_env.algolia_index_name }}";
-  const singleIndexStateMapping = instantsearch.stateMappings.singleIndex(indexName);
-  const withoutPageStateMapping = {
-    stateToRoute(uiState) {
-      const { page, ...state } = singleIndexStateMapping.stateToRoute(uiState);
-      return state;
-    },
-    routeToState(routeState) {
-      const { [indexName]: indexUiState } =
-        singleIndexStateMapping.routeToState(routeState);
-      const { page, ...state } = indexUiState;
-      return { [indexName]: state };
-    },
-  };
   const search = instantsearch({
     indexName,
     searchClient,
-    routing: { stateMapping: withoutPageStateMapping },
   });
-
-  // --- Define some custom helpers ---
-  const hitTemplate = function (hit) {
-    let date = "";
-    if (hit.date) {
-      date = moment.unix(hit.date).format("MMM D, YYYY");
-    }
-
-    let url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
-
-    const title = hit._highlightResult.title.value;
-
-    let breadcrumbs = "";
-    if (hit._highlightResult.headings) {
-      breadcrumbs = hit._highlightResult.headings
-        .map((match) => {
-          return `<span class="post-breadcrumb">${match.value}</span>`;
-        })
-        .join(" > ");
-    }
-
-    const result_content = hit._highlightResult.html.value; // Used to work, v2
-
-    return `
-            <div class="post-item">
-              <h2><a class="post-link" href="${url}">${title}</a></h2>
-              <p>${date}</p>
-              {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
-              <div class="post-snippet">${result_content}</div>
-            </div>
-          `;
-  };
 
   // --- Add all widgets ---
   search.addWidgets([
@@ -71,9 +25,6 @@
     instantsearch.widgets.hits({
       container: "#search-hits",
       escapeHTML: false,
-      templates: {
-        item: hitTemplate,
-      },
     }),
   ]);
 
