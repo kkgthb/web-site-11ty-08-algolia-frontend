@@ -1,0 +1,21 @@
+---
+layout: "layouts/standard_header_footer.liquid"
+permalink: "/search03/index.html"
+tags: ["pages"]
+---
+
+<h1 class="pb-4 text-3xl font-bold leading-none tracking-tight text-gray-900">I am the click-tracking search page (#03)</h1>
+
+<!--<div class="w-10 bg-red-500">x</div>-->
+<div id="search-searchbar" class=""></div>
+<div id="search-poweredby" class=""></div>
+<div id="search-hits" class=""></div>
+
+{% include 'components/search_approach_03/aa_initial_imports.html' %}
+{% include 'components/search_approach_03/cc_load_search_insights_library.html' %}
+{% include 'components/search_approach_03/ee_instantiate_client.html' %}
+{% include 'components/search_approach_03/gg_define_routing.html' %}
+{% include 'components/search_approach_03/ii_instantiate_instantsearch.html' %}
+{% include 'components/search_approach_03/mm_use_insights_middleware.html' %}
+{% include 'components/search_approach_03/vv_define_hits_template.html' %}
+{% include 'components/search_approach_03/zz_add_widgets_and_start_search.html' %}

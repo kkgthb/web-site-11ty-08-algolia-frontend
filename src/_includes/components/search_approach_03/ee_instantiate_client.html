@@ -1,0 +1,8 @@
+<script>
+  // --- Prep Client and define indexName ---
+  const searchClient = algoliasearch(
+    "{{ site_env.algolia_app_id }}",
+    "{{ site_env.algolia_api_key }}"
+  );
+  const indexName = "{{ site_env.algolia_index_name }}";
+</script>

@@ -1,0 +1,13 @@
+<!-- Make InstantSearch put widgets in the DOM -->
+<script>
+  // --- Force my search to use Insights middleware ---
+  const insightsMiddleware = instantsearch.middlewares.createInsightsMiddleware(
+    {
+      insightsClient: window.aa,
+      insightsInitParams: {
+        useCookie: true,
+      },
+    }
+  );
+  search.use(insightsMiddleware);
+</script>

@@ -1,0 +1,14 @@
+<script>
+  const singleIndexStateMapping = instantsearch.stateMappings.singleIndex(indexName);
+  const withoutPageStateMapping = {
+    stateToRoute(uiState) {
+      const { page, ...state } = singleIndexStateMapping.stateToRoute(uiState);
+      return state;
+    },
+    routeToState(routeState) {
+      const { [indexName]: indexUiState } = singleIndexStateMapping.routeToState(routeState);
+      const { page, ...state } = indexUiState;
+      return { [indexName]: state };
+    },
+  };
+</script>

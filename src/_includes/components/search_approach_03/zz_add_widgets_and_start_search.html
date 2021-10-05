@@ -1,0 +1,22 @@
+<script>
+  // --- Add all widgets ---
+  search.addWidgets([
+    // --- Define the "searchbar" as using the "searchBox" widget
+    instantsearch.widgets.searchBox({
+      container: "#search-searchbar",
+      placeholder: "Search this site...",
+      autofocus: false,
+    }),
+    instantsearch.widgets.poweredBy({ container: "#search-poweredby" }), // This is required if you're on the free Community plan
+    instantsearch.widgets.hits({
+      container: "#search-hits",
+      escapeHTML: false,
+      templates: {
+        item: hitTemplate,
+      },
+    }),
+  ]);
+
+  // --- Throw InstantSearch into the DOM ---
+  search.start();
+</script>
