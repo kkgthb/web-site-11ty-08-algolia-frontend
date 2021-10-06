@@ -42,10 +42,6 @@ I have this architecture on every page of my site, right below the header.  I li
 
 ---
 
-## To do:  click tracking
+## Click tracking
 
-I'd really like to do click tracking to see which results people actually enjoy when they search my site.
-
-Sadly, I am having the darndest time figuring out how to do _that_ with Algolia's CDN-based libraries.
-
-Maybe if I'm lucky, I'll figure it out and post it here.
+Woohoo!  I figured out click-tracking.  See the "search approach #3" components / page.
